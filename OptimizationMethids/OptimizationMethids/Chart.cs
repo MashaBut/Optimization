@@ -18,8 +18,8 @@ namespace OptimizationMethids
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             Indent = 20;
-            MinX = -1;
-            MaxX = 3;
+            MinX = -4;
+            MaxX = 4;
             MinY = -4;
             MaxY = 4;
             GridStep = 1;
