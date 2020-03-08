@@ -49,11 +49,13 @@ namespace OptimizationMethids
         private double func(double x)
         {
             //Mary
-            // return Math.Round((Math.Pow(x, 2) / (x + 1)), 3);
+            return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
             //Nastay
-            //return Math.Round(x * Math.Exp(x),3);
+            //return Math.Round(x * Math.Exp(x), 4);
             //Misha
-            return Math.Round(-(Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 3);
+            //return Math.Round(-(Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
+            //Shevelova
+            //return Math.Round((Math.Pow(x, 2) + 2 * x), 4);
         }
 
         private void btnForHalfDivisionMethod_Click_1(object sender, EventArgs e)
@@ -67,10 +69,34 @@ namespace OptimizationMethids
             textBoxForHalfDivisionMethod.Clear();
             foreach (HalfDivisionObject r in rez)
             {
-                textBoxForHalfDivisionMethod.Text += $"a={r.a}  b={r.b}  lambda={r.lambda}  pci={r.pci}  f(lambda)={r.funcLambda}  f(pci)={r.funcPci}" + '\r' + '\n';
+                textBoxForHalfDivisionMethod.Text += $"a = {r.a}  b = {r.b}  lambda = {r.lambda}  psi = {r.pci}  f(lambda) = {r.funcLambda}  f(psi) = {r.funcPci}" + '\r' + '\n';
             }
-            textBoxForHalfDivisionMethod.Text += $"Ответ Xmin ={method.minX} f(Xmin)={method.minF}";
+            textBoxForHalfDivisionMethod.Text += $"Ответ Xmin = {method.minX}  f(Xmin) = {method.minF}";
             buildgraph(sender, e, a, b, Color.Red);
         }
+
+        private void btnForGoldenRadioMethod_Click(object sender, EventArgs e)
+        {
+            double a = Convert.ToDouble(leftBorders.Text);
+            double b = Convert.ToDouble(rightBorders.Text);
+            double eps = Convert.ToDouble(epsilon.Text);
+            GoldenRatioMethod method = new GoldenRatioMethod(a, b, eps);
+            List<GoldenRatioObject> rez = method.getResults();
+            textBoxForGoldenRadioMethod.Clear();
+            foreach (GoldenRatioObject r in rez)
+            {
+                textBoxForGoldenRadioMethod.Text += $"a = {r.a}  b = {r.b}  x1 = {r.x1}  x2 = {r.x2}  y1 = {r.y1}  y2 = {r.y2}" + '\r' + '\n';
+            }
+            textBoxForGoldenRadioMethod.Text += $"Ответ Xmin = {method.minX}  f(Xmin) = {method.minF}";
+            buildgraph(sender, e, a, b, Color.Green);
+
+        }
+
+        private void btnForFibonachiMethod_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

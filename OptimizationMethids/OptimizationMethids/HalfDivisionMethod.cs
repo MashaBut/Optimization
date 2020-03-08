@@ -29,17 +29,19 @@ namespace OptimizationMethids
             this.b = b;
             this.delta = delta;
             this.epsilon = epsilon;
-            this.Metods();
+            this.Method();
         }
 
         private double Function(double x)
-        { 
+        {
             //Mary
-            // return Math.Round((Math.Pow(x, 2) / (x + 1)), 3);
+            return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
             //Nastay
-            //return Math.Round(x * Math.Exp(x),3);
+            //return Math.Round(x * Math.Exp(x), 4);
             //Misha
-            return Math.Round(-(Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 3);
+            //return Math.Round(-(Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
+            //Shevelova
+            //return Math.Round(Math.Pow(x, 2) + 2 * x, 4);
         }
 
         public List<HalfDivisionObject> getResults()
@@ -47,7 +49,7 @@ namespace OptimizationMethids
             return results;
         }
 
-        private void Metods()
+        private void Method()
         {
             double delta2 = b - a;
             while(delta2 > epsilon)
@@ -55,8 +57,8 @@ namespace OptimizationMethids
                 HalfDivisionObject elem = new HalfDivisionObject();
                 elem.a = a;
                 elem.b = b;
-                elem.lambda = Math.Round(this.Lambda(),3);
-                elem.pci = Math.Round(this.Pci(),3);
+                elem.lambda = Math.Round(this.Lambda(),4);
+                elem.pci = Math.Round(this.Pci(),4);
                 elem.funcLambda = this.FuncLambda(elem.lambda);
                 elem.funcPci = this.FuncPci(elem.pci);
                 results.Add(elem);
