@@ -41,11 +41,11 @@ namespace OptimizationMethids
         private double Function(double x)
         {
             //Mary
-            return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
+            // return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
             //Nastay
-             //return Math.Round(x * Math.Exp(x), 4);
+            //return Math.Round(x * Math.Exp(x), 4);
             //Misha
-            //return Math.Round(-(Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
+            return Math.Round((-Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
             //Shevelova
             //return Math.Round(Math.Pow(x, 2) + 2 * x, 4);
         }

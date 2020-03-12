@@ -51,7 +51,9 @@
     <Compile Include="Chart.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Main\Functions\Mashas26var.cs" />
     <Compile Include="Main\Functions\Mishas7var.cs" />
+    <Compile Include="Main\Functions\Nastya30var.cs" />
     <Compile Include="Main\IResult.cs" />
     <Compile Include="Main\Methods\FiboMethod\FiboMethod.cs" />
     <Compile Include="Form1.cs">

@@ -28,8 +28,8 @@ namespace OptimizationMethids
             for (double x = a; x <= b; x += 0.1)
             {
                 y = func(x);
-                xx = W / 2 + x * 53;
-                yy = H / 2 - y * 50;
+                xx = W / 2 + x * 41;
+                yy = H / 2 - y * 41;
                 PointF point = new PointF((float)xx, (float)yy);
                 Points.Add(point);
                 count++;
@@ -52,12 +52,12 @@ namespace OptimizationMethids
 
         private double func(double x)
         {
-            //Mary
-            //return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
-            //Nastay
-            //return Math.Round(x * Math.Exp(x), 4);
+            //Mary+
+            // return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
+            //Nastay+
+            // return Math.Round(x * Math.Exp(x), 4);
             //Misha
-            return Math.Round((Math.Pow(x, 4) - 2 * Math.Pow(x, 2) + 3), 4);
+            return Math.Round((-Math.Round(Math.Pow(x, 4),3) + Math.Round(2 * Math.Pow(x, 2),3) - 3), 4);
             //Shevelova
             //return Math.Round((Math.Pow(x, 2) + 2 * x), 4);
         }
