@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OptimizationMethids.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,32 +23,19 @@ namespace OptimizationMethids
         private double b;
         private double x1;
         private double x2;
-        private double y1;
-        private double y2;
         private double epsilon = 0;
-        private double fi = 1.618;
+        private IFunction function;
         public double minX = 0;
         public double minF = 0;
 
         private List<GoldenRatioObject> results = new List<GoldenRatioObject>();
-        public GoldenRatioMethod(double a, double b, double epsilon)
+        public GoldenRatioMethod(IFunction function, double a, double b, double epsilon)
         {
             this.a = a;
             this.b = b;
+            this.function = function;
             this.epsilon = epsilon;
             this.Method();
-        }
-
-        private double Function(double x)
-        {
-            //Mary
-            // return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
-            //Nastay
-            //return Math.Round(x * Math.Exp(x), 4);
-            //Misha
-            return Math.Round((-Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
-            //Shevelova
-            //return Math.Round(Math.Pow(x, 2) + 2 * x, 4);
         }
 
         public List<GoldenRatioObject> getResults()
@@ -86,7 +74,7 @@ namespace OptimizationMethids
                 k = elem.a + elem.b;
             }
             minX = Math.Round((k / 2), 4);
-            minF = Function(minX);
+            minF = function.getY(minX);
         }
         
 
@@ -102,12 +90,12 @@ namespace OptimizationMethids
 
         private double Y1()
         {
-            return Function(X1());
+            return this.function.getY(X1());
         }
 
         private double Y2()
         {
-            return Function(X2());
+            return this.function.getY(X2());
         }
 
     }

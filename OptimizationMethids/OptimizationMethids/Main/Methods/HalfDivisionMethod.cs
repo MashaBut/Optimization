@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OptimizationMethids.Main;
+using System;
 using System.Collections.Generic;
 
 namespace OptimizationMethids
@@ -18,30 +19,20 @@ namespace OptimizationMethids
         private double b;
         private double delta;
         private double epsilon =0;
+        private IFunction function;
         public double minX = 0;
         public double minF = 0;
 
 
         private List<HalfDivisionObject> results = new List<HalfDivisionObject>();
-        public HalfDivisionMethod(double a, double b,double delta, double epsilon)
+        public HalfDivisionMethod(IFunction function, double a, double b,double delta, double epsilon)
         {
             this.a = a;
             this.b = b;
             this.delta = delta;
             this.epsilon = epsilon;
+            this.function = function;
             this.Method();
-        }
-
-        private double Function(double x)
-        {
-            //Mary+
-            //return Math.Round((Math.Pow(x, 2) / (x + 1)), 4);
-            //Nastay+
-            //return Math.Round(x * Math.Exp(x), 4);
-            //Misha
-            return Math.Round((-Math.Pow(x, 4) + 2 * Math.Pow(x, 2) - 3), 4);
-            //Shevelova
-            //return Math.Round(Math.Pow(x, 2) + 2 * x, 4);
         }
 
         public List<HalfDivisionObject> getResults()
@@ -90,12 +81,12 @@ namespace OptimizationMethids
 
         private double FuncPci(double x)
         {
-            return this.Function(x);
+            return this.function.getY(x);
         }
 
         private double FuncLambda(double x)
         {
-            return this.Function(x);
+            return this.function.getY(x);
         }
     }
 }
