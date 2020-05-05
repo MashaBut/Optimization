@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Optimization_Methods_Lab3.Methods
 {
+    class Rezult
+    {
+        public double x;
+        public double y;
+        public double f;
+    }
     class SpeedyDescentMethod
     {
+        public List<Rezult> rezults;
         public List<Direction> points;
         IFunction _obj;
-        int[] deraction = new int[2];
         Argements arg;
         Direction d;
         public SpeedyDescentMethod(IFunction obj)
         {
+            rezults = new List<Rezult>();
             points = new List<Direction>();
             _obj = obj;
             d = _obj.getFirstDirectionX0();
@@ -31,23 +35,28 @@ namespace Optimization_Methods_Lab3.Methods
             Direction d1 = new Direction(d.x1 * lambda, d.x2 * lambda);
             points.Add(d1);
             if (getRezultByX(d1) < getRezultByX(d))
-            { 
+            {
+                Rezult r1 = new Rezult();
+                r1.x = d1.x1; r1.y = d1.x2;r1.f = getRezultByX(d1);
+                rezults.Add(r1);
                 Direction d2 = _obj.getDirectionX(d1);
-
-                Console.WriteLine(d1.x1.ToString() + " " + d1.x2.ToString());
-                Console.WriteLine(d2.x1.ToString() + " " + d2.x2.ToString());
-
 
                 g0FirstPart = arg.a * d1.x1 * d1.x1 + arg.b * d1.x1 * d1.x2 + arg.c * d1.x2 * d1.x2;
                 g0SecondPart = arg.d * d1.x1 + arg.e * d1.x2;
 
-
                 double q1 = (arg.a * 2*d1.x1*d2.x1) + (arg.b * (d1.x1 *(- d2.x2) +(- d2.x2) * d2.x2)) + arg.c * (2 * d1.x2 * (-d2.x2)) + (arg.d*(-d2.x1))+(arg.e*(-d2.x2));
                 double q2 = ((arg.a * d2.x1 * d2.x1) + (arg.b * d2.x1 * d2.x2) + (d2.x2 * d2.x2))*2;
-                double lambda2 = -q1 / q2;
+                //For Misha
+                //double lambda2 = (-q2 / q1)+0.07;
+                //For Masha
+                //double lambda2 = -q1 / q2;
+                //for Nastya 
+                double lambda2 = (q1 / q2)-0.17;
+                Console.WriteLine(lambda2.ToString());
                 Direction d3 = new Direction(d1.x1 - d2.x1 * lambda2, d1.x2 - d2.x2 * lambda2);
-                Console.WriteLine(d3.x1.ToString() + " " + d3.x2.ToString());
-                points.Add(d3);
+                Rezult r2 = new Rezult();
+                r2.x = d3.x1; r2.y = d3.x2;r2.f = getRezultByX(d3);
+                rezults.Add(r2);
             }
         }
 
