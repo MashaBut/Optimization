@@ -21,6 +21,11 @@ namespace Optimization_Methods_Lab3
             return "3x1^2+2x1x2+x2^2+12x1-6x2";
         }
 
+        public string getRozenbrokeFunction()
+        {
+            return "100(x2-x1^2)^2 + (1-x1)^2";
+        }
+
         public Direction getFirstDirectionX0()
         {
             return d;

@@ -10,6 +10,8 @@ namespace Optimization_Methods_Lab3.Methods
     {
         string getFunciton();
 
+        string getRozenbrokeFunction();
+
         Argements GetArgements();
         
         Direction getFirstDirectionX0();

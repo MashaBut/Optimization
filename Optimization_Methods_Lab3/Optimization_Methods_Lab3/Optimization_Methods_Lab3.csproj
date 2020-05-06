@@ -55,6 +55,7 @@
     <Compile Include="FunctionObj.cs" />
     <Compile Include="Masha.cs" />
     <Compile Include="Methods\IFunction.cs" />
+    <Compile Include="Methods\StepCrushingMethod.cs" />
     <Compile Include="Misha.cs" />
     <Compile Include="Methods\SpeedyDescentMethod.cs" />
     <Compile Include="Nastya.cs" />

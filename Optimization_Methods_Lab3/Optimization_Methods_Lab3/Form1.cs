@@ -20,17 +20,29 @@ namespace Optimization_Methods_Lab3
 
       
 
-        private void SpeedyDiscent_Click(object sender, EventArgs e)
+        private void speedyDescentMethod_Click(object sender, EventArgs e)
         {
             IFunction func = new Nastya();
             SpeedyDescentMethod sd = new SpeedyDescentMethod(func);
             textSpeedy.Clear();
             int count = 1;
-            textSpeedy.Text += $"Функция {func.getFunciton()} "+ '\r' + '\n';
+            textSpeedy.Text += $"Функция {func.getFunciton()} " + '\r' + '\n';
             foreach (Rezult r in sd.rezults)
             {
                 textSpeedy.Text += $"Итерация {count++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
             }
+        }
+
+        private void stepCrushingMethod_Click(object sender, EventArgs e)
+        {
+            IFunction func = new Nastya();
+
+            textStepCrushing.Clear();
+            int count = 1;
+            textStepCrushing.Text += $"Функция {func.getFunciton()}" + '\r' + '\n';
+
+            textStepCrushing.Text += $"Функция  Розенброка {func.getRozenbrokeFunction()} " + '\r' + '\n';
+
         }
     }
 
