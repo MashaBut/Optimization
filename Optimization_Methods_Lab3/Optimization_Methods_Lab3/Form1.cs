@@ -18,11 +18,9 @@ namespace Optimization_Methods_Lab3
             InitializeComponent();
         }
 
-      
-
         private void speedyDescentMethod_Click(object sender, EventArgs e)
         {
-            IFunction func = new Nastya();
+            IFunction func = new Misha();
             SpeedyDescentMethod sd = new SpeedyDescentMethod(func);
             textSpeedy.Clear();
             int count = 1;
@@ -35,13 +33,23 @@ namespace Optimization_Methods_Lab3
 
         private void stepCrushingMethod_Click(object sender, EventArgs e)
         {
-            IFunction func = new Nastya();
-
+            IFunction func = new Misha();
+            StepCrushingMethod cm = new StepCrushingMethod(func);
             textStepCrushing.Clear();
+            textStepCrushingRozenbrok.Clear();
             int count = 1;
+            int counter = 1;
             textStepCrushing.Text += $"Функция {func.getFunciton()}" + '\r' + '\n';
+            foreach (Rezult r in cm.rezults)
+            {
+                textStepCrushing.Text += $"Итерация {count++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
+            }
 
-            textStepCrushing.Text += $"Функция  Розенброка {func.getRozenbrokeFunction()} " + '\r' + '\n';
+            textStepCrushingRozenbrok.Text += $"Функция  Розенброка {func.getRozenbrokeFunction()} " + '\r' + '\n';
+            foreach (Rezult r in cm.rezultsRoz)
+            {
+                textStepCrushingRozenbrok.Text += $"Итерация {counter++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
+            }
 
         }
     }

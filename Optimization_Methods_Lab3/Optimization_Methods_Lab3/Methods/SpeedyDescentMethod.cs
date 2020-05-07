@@ -47,11 +47,11 @@ namespace Optimization_Methods_Lab3.Methods
                 double q1 = (arg.a * 2*d1.x1*d2.x1) + (arg.b * (d1.x1 *(- d2.x2) +(- d2.x2) * d2.x2)) + arg.c * (2 * d1.x2 * (-d2.x2)) + (arg.d*(-d2.x1))+(arg.e*(-d2.x2));
                 double q2 = ((arg.a * d2.x1 * d2.x1) + (arg.b * d2.x1 * d2.x2) + (d2.x2 * d2.x2))*2;
                 //For Misha
-                //double lambda2 = (-q2 / q1)+0.07;
+                double lambda2 = (-q2 / q1)+0.07;
                 //For Masha
                 //double lambda2 = -q1 / q2;
                 //for Nastya 
-                double lambda2 = (q1 / q2)-0.17;
+                //double lambda2 = (q1 / q2)-0.17;
                 Console.WriteLine(lambda2.ToString());
                 Direction d3 = new Direction(d1.x1 - d2.x1 * lambda2, d1.x2 - d2.x2 * lambda2);
                 Rezult r2 = new Rezult();

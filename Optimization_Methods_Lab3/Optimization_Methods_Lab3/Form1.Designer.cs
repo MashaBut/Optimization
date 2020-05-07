@@ -35,6 +35,8 @@
             this.textStepCrushing = new System.Windows.Forms.TextBox();
             this.newtonsMethod = new System.Windows.Forms.Button();
             this.textNewton = new System.Windows.Forms.TextBox();
+            this.textStepCrushingRozenbrok = new System.Windows.Forms.TextBox();
+            this.textNewtonRozenbroke = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // speedyDescentMethod
@@ -71,7 +73,7 @@
             this.stepCrushingMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stepCrushingMethod.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.stepCrushingMethod.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.stepCrushingMethod.Location = new System.Drawing.Point(9, 115);
+            this.stepCrushingMethod.Location = new System.Drawing.Point(9, 160);
             this.stepCrushingMethod.Margin = new System.Windows.Forms.Padding(2);
             this.stepCrushingMethod.Name = "stepCrushingMethod";
             this.stepCrushingMethod.Size = new System.Drawing.Size(142, 82);
@@ -98,7 +100,7 @@
             this.newtonsMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newtonsMethod.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.newtonsMethod.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.newtonsMethod.Location = new System.Drawing.Point(9, 211);
+            this.newtonsMethod.Location = new System.Drawing.Point(9, 358);
             this.newtonsMethod.Margin = new System.Windows.Forms.Padding(2);
             this.newtonsMethod.Name = "newtonsMethod";
             this.newtonsMethod.Size = new System.Drawing.Size(142, 82);
@@ -109,7 +111,7 @@
             // textNewton
             // 
             this.textNewton.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textNewton.Location = new System.Drawing.Point(155, 211);
+            this.textNewton.Location = new System.Drawing.Point(155, 307);
             this.textNewton.Margin = new System.Windows.Forms.Padding(2);
             this.textNewton.Multiline = true;
             this.textNewton.Name = "textNewton";
@@ -117,11 +119,35 @@
             this.textNewton.Size = new System.Drawing.Size(616, 82);
             this.textNewton.TabIndex = 5;
             // 
+            // textStepCrushingRozenbrok
+            // 
+            this.textStepCrushingRozenbrok.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textStepCrushingRozenbrok.Location = new System.Drawing.Point(155, 210);
+            this.textStepCrushingRozenbrok.Margin = new System.Windows.Forms.Padding(2);
+            this.textStepCrushingRozenbrok.Multiline = true;
+            this.textStepCrushingRozenbrok.Name = "textStepCrushingRozenbrok";
+            this.textStepCrushingRozenbrok.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textStepCrushingRozenbrok.Size = new System.Drawing.Size(616, 82);
+            this.textStepCrushingRozenbrok.TabIndex = 6;
+            // 
+            // textNewtonRozenbroke
+            // 
+            this.textNewtonRozenbroke.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textNewtonRozenbroke.Location = new System.Drawing.Point(155, 404);
+            this.textNewtonRozenbroke.Margin = new System.Windows.Forms.Padding(2);
+            this.textNewtonRozenbroke.Multiline = true;
+            this.textNewtonRozenbroke.Name = "textNewtonRozenbroke";
+            this.textNewtonRozenbroke.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textNewtonRozenbroke.Size = new System.Drawing.Size(616, 82);
+            this.textNewtonRozenbroke.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 316);
+            this.ClientSize = new System.Drawing.Size(782, 497);
+            this.Controls.Add(this.textNewtonRozenbroke);
+            this.Controls.Add(this.textStepCrushingRozenbrok);
             this.Controls.Add(this.textNewton);
             this.Controls.Add(this.newtonsMethod);
             this.Controls.Add(this.textStepCrushing);
@@ -146,6 +172,8 @@
         private System.Windows.Forms.TextBox textStepCrushing;
         private System.Windows.Forms.Button newtonsMethod;
         private System.Windows.Forms.TextBox textNewton;
+        private System.Windows.Forms.TextBox textStepCrushingRozenbrok;
+        private System.Windows.Forms.TextBox textNewtonRozenbroke;
     }
 }
 

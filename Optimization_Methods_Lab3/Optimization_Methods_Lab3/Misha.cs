@@ -11,7 +11,7 @@
 
         public string getFunciton()
         {
-            return "4x1^2+2x1x2+5*x2^2-2x1-3x2";
+            return "4x1^2+2x1x2+5x2^2-2x1-3x2";
         }
 
         public string getRozenbrokeFunction()
