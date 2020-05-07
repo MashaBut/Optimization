@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Optimization_Methods_Lab3.Models;
+
+using Optimization_Methods_Lab3.Entities.Functions;
+
 namespace Optimization_Methods_Lab3
 {
     public partial class Form1 : Form
