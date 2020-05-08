@@ -30,63 +30,87 @@
         {
             this.speedyDescentMethod = new System.Windows.Forms.Button();
             this.SpeedyDescent = new System.ComponentModel.BackgroundWorker();
-            this.textSpeedy = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SpeedyMethodButton = new System.Windows.Forms.Button();
+            this.NewtonMethodButton = new System.Windows.Forms.Button();
+            this.GradMethodButton = new System.Windows.Forms.Button();
+            this.ResultListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // speedyDescentMethod
             // 
-            this.SpeedyDiscent.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.SpeedyDiscent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SpeedyDiscent.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SpeedyDiscent.Location = new System.Drawing.Point(9, 10);
-            this.SpeedyDiscent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.SpeedyDiscent.Name = "SpeedyDiscent";
-            this.SpeedyDiscent.Size = new System.Drawing.Size(142, 63);
-            this.SpeedyDiscent.TabIndex = 0;
-            this.SpeedyDiscent.Text = "Метод наискорейшего спуска";
-            this.SpeedyDiscent.UseVisualStyleBackColor = false;
-            this.SpeedyDiscent.Click += new System.EventHandler(this.SpeedyDiscent_Click);
+            this.speedyDescentMethod.Location = new System.Drawing.Point(0, 0);
+            this.speedyDescentMethod.Name = "speedyDescentMethod";
+            this.speedyDescentMethod.Size = new System.Drawing.Size(75, 23);
+            this.speedyDescentMethod.TabIndex = 0;
             // 
-            // textSpeedy
+            // SpeedyMethodButton
             // 
-            this.textSpeedy.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textSpeedy.Location = new System.Drawing.Point(148, 10);
-            this.textSpeedy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textSpeedy.Multiline = true;
-            this.textSpeedy.Name = "textSpeedy";
-            this.textSpeedy.Size = new System.Drawing.Size(542, 64);
-            this.textSpeedy.TabIndex = 1;
+            this.SpeedyMethodButton.BackColor = System.Drawing.Color.Peru;
+            this.SpeedyMethodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SpeedyMethodButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SpeedyMethodButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SpeedyMethodButton.Location = new System.Drawing.Point(11, 11);
+            this.SpeedyMethodButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SpeedyMethodButton.Name = "SpeedyMethodButton";
+            this.SpeedyMethodButton.Size = new System.Drawing.Size(122, 63);
+            this.SpeedyMethodButton.TabIndex = 0;
+            this.SpeedyMethodButton.Text = "Метод найшвидшого спуску";
+            this.SpeedyMethodButton.UseVisualStyleBackColor = false;
+            this.SpeedyMethodButton.Click += new System.EventHandler(this.SpeedyMethodButton_Click);
             // 
-            // button1
+            // NewtonMethodButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(9, 77);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Метод ньютона";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.NewtonButtonClick);
+            this.NewtonMethodButton.BackColor = System.Drawing.Color.Green;
+            this.NewtonMethodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewtonMethodButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NewtonMethodButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NewtonMethodButton.Location = new System.Drawing.Point(137, 11);
+            this.NewtonMethodButton.Margin = new System.Windows.Forms.Padding(2);
+            this.NewtonMethodButton.Name = "NewtonMethodButton";
+            this.NewtonMethodButton.Size = new System.Drawing.Size(114, 63);
+            this.NewtonMethodButton.TabIndex = 0;
+            this.NewtonMethodButton.Text = "Метод ньютона";
+            this.NewtonMethodButton.UseVisualStyleBackColor = false;
+            this.NewtonMethodButton.Click += new System.EventHandler(this.NewtonMethodButton_Click);
+            // 
+            // GradMethodButton
+            // 
+            this.GradMethodButton.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.GradMethodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GradMethodButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GradMethodButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GradMethodButton.Location = new System.Drawing.Point(255, 11);
+            this.GradMethodButton.Margin = new System.Windows.Forms.Padding(2);
+            this.GradMethodButton.Name = "GradMethodButton";
+            this.GradMethodButton.Size = new System.Drawing.Size(120, 63);
+            this.GradMethodButton.TabIndex = 0;
+            this.GradMethodButton.Text = "Градиентный метод";
+            this.GradMethodButton.UseVisualStyleBackColor = false;
+            this.GradMethodButton.Click += new System.EventHandler(this.GradMethodButton_Click);
+            // 
+            // ResultListBox
+            // 
+            this.ResultListBox.FormattingEnabled = true;
+            this.ResultListBox.Location = new System.Drawing.Point(12, 79);
+            this.ResultListBox.Name = "ResultListBox";
+            this.ResultListBox.Size = new System.Drawing.Size(363, 108);
+            this.ResultListBox.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 397);
-            this.Controls.Add(this.textSpeedy);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.SpeedyDiscent);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(384, 196);
+            this.Controls.Add(this.ResultListBox);
+            this.Controls.Add(this.GradMethodButton);
+            this.Controls.Add(this.NewtonMethodButton);
+            this.Controls.Add(this.SpeedyMethodButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -94,8 +118,10 @@
 
         private System.Windows.Forms.Button speedyDescentMethod;
         private System.ComponentModel.BackgroundWorker SpeedyDescent;
-        private System.Windows.Forms.TextBox textSpeedy;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SpeedyMethodButton;
+        private System.Windows.Forms.Button NewtonMethodButton;
+        private System.Windows.Forms.Button GradMethodButton;
+        private System.Windows.Forms.ListBox ResultListBox;
     }
 }
 

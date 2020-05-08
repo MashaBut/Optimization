@@ -16,15 +16,15 @@
 //            return "5x1^2-2x1x2+x2^2-2x1+3x2";
 //        }
 
-        public string getRozenbrokeFunction()
-        {
-            return "100(x2-x1^2)^2 + (1-x1)^2";
-        }
+        //public string getRozenbrokeFunction()
+        //{
+        //    return "100(x2-x1^2)^2 + (1-x1)^2";
+        //}
 
-        public Direction getFirstDirectionX0()
-        {
-            return d;
-        }
+        //public Direction getFirstDirectionX0()
+        //{
+        //    return d;
+        //}
 
 //        public Direction getDirectionX(Direction d)
 //        {

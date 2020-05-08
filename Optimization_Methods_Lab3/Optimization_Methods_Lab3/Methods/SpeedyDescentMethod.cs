@@ -1,84 +1,51 @@
-﻿//using System;
-//using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Optimization_Methods_Lab3.Entities;
+using Optimization_Methods_Lab3.Entities.Functions;
+using Optimization_Methods_Lab3.Models;
 
-//using Optimization_Methods_Lab3.Entities.Functions;
-//using Optimization_Methods_Lab3.Models;
+namespace Optimization_Methods_Lab3.Methods
+{
+    class SpeedyDescentMethod : IMethod
+    {
+        public List<string> getResults(PolynomialDerivativeFunction function, double x1, double x2, double e)
+        {
+            return getResults(function, x1, x2, e, 0.1);
+        }
 
-//namespace Optimization_Methods_Lab3.Methods
-//{
-//    class Rezult
-//    {
-//        public double x;
-//        public double y;
-//        public double f;
-//    }
-//    class SpeedyDescentMethod
-//    {
-//        public List<Rezult> rezults;
-//        public List<Direction> points;
-//        PolynomialDerivativeFunction _obj;
-//        Arguments arg;
-//        Direction d;
-//        public SpeedyDescentMethod(PolynomialDerivativeFunction obj)
-//        {
-//            rezults = new List<Rezult>();
-//            points = new List<Direction>();
-//            _obj = obj;
-//            d = _obj.getDerivativeX1();
-//            arg = _obj.coefficients;
-//            firstStep();
-//            points.Add(d);
-//        }
+        public List<string> getResults(RozenbokeFunction function, double x1, double x2, double e)
+        {
+            return getResults(function, x1, x2, e, 0.1);
+        }
 
-//        private void firstStep()
-//        {
-//            double g0FirstPart = arg.a * d.x1 * d.x1 + arg.b * d.x1 * d.x2 + arg.c * d.x2 * d.x2;
-//            double g0SecondPart = arg.d * d.x1 + arg.e * d.x2;
-//            double lambda = -g0SecondPart/(g0FirstPart*2);
-//            Direction d1 = new Direction(d.x1 * lambda, d.x2 * lambda);
-//            points.Add(d1);
-//            if (getRezultByX(d1) < getRezultByX(d))
-//            {
-//                Rezult r1 = new Rezult();
-//                r1.x = d1.x1; r1.y = d1.x2;r1.f = getRezultByX(d1);
-//                rezults.Add(r1);
-//                Direction d2 = _obj.getDirectionX(d1);
+        public List<string> getResults(IDerivativeFunction function, double x1, double x2, double e, double lam)
+        {
+            List<string> results = new List<string>();
 
-        //         double q1 = (arg.a * 2*d1.x1*d2.x1) + (arg.b * (d1.x1 *(- d2.x2) +(- d2.x2) * d2.x2)) + arg.c * (2 * d1.x2 * (-d2.x2)) + (arg.d*(-d2.x1))+(arg.e*(-d2.x2));
-        //         double q2 = ((arg.a * d2.x1 * d2.x1) + (arg.b * d2.x1 * d2.x2) + (d2.x2 * d2.x2))*2;
-        //         //For Misha
-        //         double lambda2 = (-q2 / q1)+0.07;
-        //         //For Masha
-        //         //double lambda2 = -q1 / q2;
-        //         //for Nastya 
-        //         //double lambda2 = (q1 / q2)-0.17;
-        //         Console.WriteLine(lambda2.ToString());
-        //         Direction d3 = new Direction(d1.x1 - d2.x1 * lambda2, d1.x2 - d2.x2 * lambda2);
-        //         Rezult r2 = new Rezult();
-        //         r2.x = d3.x1; r2.y = d3.x2;r2.f = getRezultByX(d3);
-        //         rezults.Add(r2);
-        //     }
-        // }
+            int i = 0;
+            // TO-DO remove code duplication
+            Matrix grad = calculateGrad(function, x1, x2);
+            x1 -= x1 - e * grad.get(0, 0);
+            x2 -= x2 - e * grad.get(0, 1);
+            results.Add(String.Format("k={0} x1={1} x2={2} f(x1,x2)={3}", i++, Math.Round(x1, 3), Math.Round(x2, 3), Math.Round(function.getY(x1, x2), 3)));
+            Matrix prevGrad;
+            do
+            {
+                prevGrad = grad;
+                grad = calculateGrad(function, x1, x2);
+                x1 -= lam * grad.get(0, 0);
+                x2 -= lam * grad.get(0, 1);
+                results.Add(String.Format("k={0} x1={1} x2={2} f(x1,x2)={3}", i++, Math.Round(x1, 3), Math.Round(x2, 3), Math.Round(function.getY(x1, x2), 3)));
+            } while (Math.Abs((prevGrad - grad).get(0,0)) > e && Math.Abs((prevGrad - grad).get(0, 1)) > e);
 
-//                double q1 = (arg.a * 2*d1.x1*d2.x1) + (arg.b * (d1.x1 *(- d2.x2) +(- d2.x2) * d2.x2)) + arg.c * (2 * d1.x2 * (-d2.x2)) + (arg.d*(-d2.x1))+(arg.e*(-d2.x2));
-//                double q2 = ((arg.a * d2.x1 * d2.x1) + (arg.b * d2.x1 * d2.x2) + (d2.x2 * d2.x2))*2;
-//                //For Misha
-//                //double lambda2 = (-q2 / q1)+0.07;
-//                //For Masha
-//                //double lambda2 = -q1 / q2;
-//                //for Nastya 
-//                double lambda2 = (q1 / q2)-0.17;
-//                Console.WriteLine(lambda2.ToString());
-//                Direction d3 = new Direction(d1.x1 - d2.x1 * lambda2, d1.x2 - d2.x2 * lambda2);
-//                Rezult r2 = new Rezult();
-//                r2.x = d3.x1; r2.y = d3.x2;r2.f = getRezultByX(d3);
-//                rezults.Add(r2);
-//            }
-//        }
+            return results;
+        }
 
-//        private double getRezultByX(Direction d)
-//        {
-//            return arg.a * d.x1 * d.x1 + arg.b * d.x1 * d.x2 + arg.c * d.x2 * d.x2 + arg.d * d.x1 + arg.e * d.x2;
-//        }
-//    }
-//}
+        private Matrix calculateGrad(IDerivativeFunction function, double x1, double x2)
+        {
+            return new Matrix(new double[1, 2] {
+                { function.getDerivativeX1().getY(x1, x2), function.getDerivativeX2().getY(x1, x2)}
+            });
+        }
+    }
+}

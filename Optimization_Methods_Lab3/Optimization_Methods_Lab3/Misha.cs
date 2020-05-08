@@ -9,15 +9,15 @@
 //            return obj;
 //        }
 
-        public string getFunciton()
-        {
-            return "4x1^2+2x1x2+5x2^2-2x1-3x2";
-        }
+        //public string getFunciton()
+        //{
+        //    return "4x1^2+2x1x2+5x2^2-2x1-3x2";
+        //}
 
-        public string getRozenbrokeFunction()
-        {
-            return "100(x2-x1^2)^2 + (1-x1)^2";
-        }
+        //public string getRozenbrokeFunction()
+        //{
+        //    return "100(x2-x1^2)^2 + (1-x1)^2";
+        //}
 
 //        public Direction getFirstDirectionX0()
 //        {

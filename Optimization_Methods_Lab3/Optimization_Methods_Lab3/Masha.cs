@@ -19,15 +19,15 @@
 //            return obj;
 //        }
 
-        public string getRozenbrokeFunction()
-        {
-            return "100(x2-x1^2)^2 + (1-x1)^2";
-        }
+        //public string getRozenbrokeFunction()
+        //{
+        //    return "100(x2-x1^2)^2 + (1-x1)^2";
+        //}
 
-        public Direction getFirstDirectionX0()
-        {
-            return d;
-        }
+        //public Direction getFirstDirectionX0()
+        //{
+        //    return d;
+        //}
 
 //        public Direction getFirstDirectionX0()
 //        {

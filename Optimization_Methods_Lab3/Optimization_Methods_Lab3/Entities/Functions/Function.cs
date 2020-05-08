@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optimization_Methods_Lab3.Entities.Functions
 {
-    abstract class Function 
+    abstract class Function : IFunction
     {
         protected int argsLength;
         

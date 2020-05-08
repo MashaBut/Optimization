@@ -64,6 +64,17 @@ namespace Optimization_Methods_Lab3.Entities
             else
                 throw new Exception(String.Format("matrix are not acceptable a.x = {0}; b.y = {1}", a.getX(), b.getY()));
         }
+
+        public static Matrix operator -(Matrix a, Matrix b)
+        {
+            if (a.getX() == b.getX() && a.getY() == b.getY())
+            {
+                return substract(a, b);
+            } else
+            {
+                throw new Exception("Matrix sizes are not equals");
+            }
+        }
         #endregion
 
         #region Public
@@ -74,30 +85,51 @@ namespace Optimization_Methods_Lab3.Entities
                 throw new InvalidOperationException(
                     "determinant can be calculated only for square matrix");
             }
+            if (getY() == 1)
+            {
+                return elements[0, 0];
+            }
             if (getY() == 2)
             {
                 return elements[0, 0] * elements[1, 1] - elements[0, 1] * elements[1, 0];
             }
             double result = 0;
-            for (var j = 0; j < getY(); j++)
+            for (var y = 0; y < getY(); y++)
             {
-                result += (j % 2 == 1 ? 1 : -1) * elements[1, j] *
-                    this.createMatrixWithoutColumn(j).
+                result += (y % 2 == 1 ? 1 : -1) * elements[1, y] *
+                    this.createMatrixWithoutColumn(y).
                     createMatrixWithoutRow(1).calculateDeterminant();
             }
             return result;
         }
         public object Clone()
         {
-            return new Matrix(elements);
+            return new Matrix(elements.Clone() as double[,]);
         }
         public Matrix getInverseMatrix()
         {
             Matrix result = (Matrix)Clone();
             double det = calculateDeterminant();
-            processFunctionOverData((int i, int j) =>
+            processFunctionOverData((int x, int y) =>
             {
-                result.set(i, j, result.get(i, j) / det);
+                result.set(x, y, ((x + y) % 2 == 1 ? -1 : 1) * сalculateMinor(x,y) / det);
+            });
+            return result.transponate();
+        }
+
+        public double сalculateMinor(int x, int y)
+        {
+            return createMatrixWithoutColumn(x)
+                .createMatrixWithoutRow(y)
+                .calculateDeterminant();
+        }
+
+        public Matrix transponate()
+        {
+            Matrix result = (Matrix)Clone();
+            processFunctionOverData((x, y) =>
+            {
+                result.set(y, x, elements[x, y]);
             });
             return result;
         }
@@ -110,9 +142,9 @@ namespace Optimization_Methods_Lab3.Entities
             {
                 throw new ArgumentException("invalid column index");
             }
-            var result = new Matrix(getY(), getX() - 1);
-            result.processFunctionOverData((i, j) =>
-                result.set(i, j, j < column ? elements[i, j] : elements[i, j + 1]));
+            var result = new Matrix(getX() - 1, getY());
+            result.processFunctionOverData((x, y) =>
+                result.set(x, y, x < column ? elements[x, y] : elements[x + 1, y]));
             return result;
         }
         private Matrix createMatrixWithoutRow(int row)
@@ -121,9 +153,9 @@ namespace Optimization_Methods_Lab3.Entities
             {
                 throw new ArgumentException("invalid row index");
             }
-            var result = new Matrix(getY() - 1, getX());
-            result.processFunctionOverData((i, j) =>
-                result.set(i, j, i < row ? elements[i, j] : elements[i + 1, j]));
+            var result = new Matrix(getX(), getY() - 1);
+            result.processFunctionOverData((x, y) =>
+                result.set(x, y, y < row ? elements[x, y] : elements[x, y + 1]));
             return result;
         }
         private void processFunctionOverData(Action<int, int> func)
@@ -132,7 +164,7 @@ namespace Optimization_Methods_Lab3.Entities
             {
                 for (var j = 0; j < getX(); j++)
                 {
-                    func(i, j);
+                    func(j, i);
                 }
             }
         }
@@ -151,6 +183,14 @@ namespace Optimization_Methods_Lab3.Entities
                     result.set(ii, i, sum);
                 }
             }
+            return result;
+        }
+        private static Matrix substract(Matrix a, Matrix b)
+        {
+            Matrix result = (Matrix)a.Clone();
+            result.processFunctionOverData((x,y) => {
+                a.set(x, y, a.get(x, y) - b.get(x, y));
+            });
             return result;
         }
         #endregion

@@ -10,51 +10,44 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Optimization_Methods_Lab3.Models;
-
+using Optimization_Methods_Lab3.Entities;
+using Optimization_Methods_Lab3.Infrastructure;
 using Optimization_Methods_Lab3.Entities.Functions;
 
 namespace Optimization_Methods_Lab3
 {
     public partial class Form1 : Form
     {
+        private FunctionBuilder funcBuilder = new FunctionBuilder(Variant.MISHA);
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void speedyDescentMethod_Click(object sender, EventArgs e)
+        private void GradMethodButton_Click(object sender, EventArgs e)
         {
-            IFunction func = new Misha();
-            SpeedyDescentMethod sd = new SpeedyDescentMethod(func);
-            textSpeedy.Clear();
-            int count = 1;
-            textSpeedy.Text += $"Функция {func.getFunciton()} " + '\r' + '\n';
-            foreach (Rezult r in sd.rezults)
-            {
-                textSpeedy.Text += $"Итерация {count++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
-            }
+            calculate(new StepCrushingMethod());
         }
 
-        private void stepCrushingMethod_Click(object sender, EventArgs e)
+        private void NewtonMethodButton_Click(object sender, EventArgs e)
         {
-            IFunction func = new Misha();
-            StepCrushingMethod cm = new StepCrushingMethod(func);
-            textStepCrushing.Clear();
-            textStepCrushingRozenbrok.Clear();
-            int count = 1;
-            int counter = 1;
-            textStepCrushing.Text += $"Функция {func.getFunciton()}" + '\r' + '\n';
-            foreach (Rezult r in cm.rezults)
-            {
-                textStepCrushing.Text += $"Итерация {count++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
-            }
+            calculate(new NewtonMethod());
+        }
 
-            textStepCrushingRozenbrok.Text += $"Функция  Розенброка {func.getRozenbrokeFunction()} " + '\r' + '\n';
-            foreach (Rezult r in cm.rezultsRoz)
-            {
-                textStepCrushingRozenbrok.Text += $"Итерация {counter++}: x1 = {r.x}  x2 = {r.y}  f = {r.f}" + '\r' + '\n';
-            }
+        private void SpeedyMethodButton_Click(object sender, EventArgs e)
+        {
+            calculate(new SpeedyDescentMethod());
+        }
 
+        private void calculate(IMethod method)
+        {
+            showResults(method.getResults(funcBuilder.buildPolyFunction(), 0,0,0.001));
+        }
+
+        private void showResults(List<string> results)
+        {
+            ResultListBox.Items.Clear();
+            results.ForEach((String item) => ResultListBox.Items.Add(item));
         }
     }
 

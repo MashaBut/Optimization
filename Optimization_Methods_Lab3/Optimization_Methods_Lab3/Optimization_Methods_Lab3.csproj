@@ -46,19 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Functions\Function.cs" />
+    <Compile Include="Entities\Functions\IDerivativeFunction.cs" />
+    <Compile Include="Entities\Functions\IFunction.cs" />
     <Compile Include="Entities\Functions\PolynomialDerivativeFunction.cs" />
     <Compile Include="Entities\Functions\PolynomialFunction.cs" />
     <Compile Include="Entities\Functions\RozenbokeFunction.cs" />
+    <Compile Include="Entities\Matrix.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\FunctionBuilder.cs" />
+    <Compile Include="Infrastructure\Variant.cs" />
+    <Compile Include="Methods\IMethod.cs" />
+    <Compile Include="Methods\NewtonMethod.cs" />
     <Compile Include="Models\Arguments.cs" />
     <Compile Include="Models\FunctionObj.cs" />
     <Compile Include="Masha.cs" />
-    <Compile Include="Methods\IFunction.cs" />
     <Compile Include="Methods\StepCrushingMethod.cs" />
     <Compile Include="Misha.cs" />
     <Compile Include="Methods\SpeedyDescentMethod.cs" />

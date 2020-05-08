@@ -8,7 +8,7 @@ using Optimization_Methods_Lab3.Models;
 
 namespace Optimization_Methods_Lab3.Entities.Functions
 {
-    class PolynomialDerivativeFunction : PolynomialFunction
+    class PolynomialDerivativeFunction : PolynomialFunction, IDerivativeFunction
     {
         public PolynomialDerivativeFunction(Arguments koef) : base(koef) { }
 
