@@ -41,7 +41,7 @@ namespace Optimization_Methods_Lab3
 
         private void calculate(IMethod method)
         {
-            showResults(method.getResults(funcBuilder.buildPolyFunction(), 0,0,0.001));
+            showResults(method.getResults(funcBuilder.buildRozenFunction(), 0.001, 0,0));
         }
 
         private void showResults(List<string> results)

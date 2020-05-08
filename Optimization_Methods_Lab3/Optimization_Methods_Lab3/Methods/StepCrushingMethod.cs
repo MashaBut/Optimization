@@ -45,7 +45,7 @@ namespace Optimization_Methods_Lab3.Methods
 
                 results.Add(String.Format("k={0} x1={1} x2={2} f(x1,x2)={3}", k++, Math.Round(x1, 3), Math.Round(x2, 3), Math.Round(resFunc,3)));
 
-                if (resFunc > prevFunc - 0.5 * alpha * Math.Sqrt(Math.Pow(dx1, 2) + Math.Pow(dx2, 2)))
+                if (resFunc > prevFunc - 0.5 * lambda * Math.Sqrt(Math.Pow(dx1, 2) + Math.Pow(dx2, 2)))
                 {
                     alpha = lambda * betta;
                 }
